@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import CreatePost from "../pages/CreatePost";
 import ShowPost from "../pages/ShowPost";
 import SinglePost from "../pages/SinglePost";
-import "./App.scss"
+import "../public/App.scss"
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           <ShowPost />
         }
         />
-        <Route path={'/post:id'} element={
+        <Route path={'/post/:id'} element={
           <SinglePost/>
         }
         />

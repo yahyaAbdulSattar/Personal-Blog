@@ -62,4 +62,10 @@ app.get("/posts", async (req, res) => {
     res.send(blogs);
 })
 
+app.get("/post/:id", async (req, res)=>{
+    const single_blog = await blog.findOne({ _id: req.params.id })
+
+    res.send(single_blog)
+})
+
 app.listen(3000);
