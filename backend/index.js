@@ -29,7 +29,7 @@ app.post("/login", async (req, res) => {
 
         const token = jwt.sign({ username: username }, JWT_SECRET);
 
-        res.json({
+        res.send({
             token
         });
 
@@ -58,11 +58,10 @@ app.post("/create-post", AuthMiddleware, async (req, res) => {
 app.get("/posts", async (req, res) => {
     const blogs = await blog.find({});
 
-
     res.send(blogs);
 })
 
-app.get("/post/:id", async (req, res)=>{
+app.get("/post/:id", async (req, res) => {
     const single_blog = await blog.findOne({ _id: req.params.id })
 
     res.send(single_blog)

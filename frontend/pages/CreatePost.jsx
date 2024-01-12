@@ -31,9 +31,14 @@ const CreatePost = () => {
         ev.preventDefault()
 
         try{
+            const token = localStorage.getItem('token');
             const response = await axios.post('http://localhost:3000/create-post', {
                 title: title,
                 content: content
+            }, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
             })
 
             console.log('Post created successfully: ', response.data);

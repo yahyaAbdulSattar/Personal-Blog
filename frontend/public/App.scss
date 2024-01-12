@@ -1,24 +1,35 @@
-
-
 *{
     margin: 0;
     padding: 0;
 }
 
 body{
+    background-color: rgb(0, 0, 0);
     margin-top: 120px;
 }
 
-.blog{
-    font-family: 'Lato', sans-serif;
+.blogs-container{
+
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    flex-direction: column;
+      
 
-    .blog-title{
+    .blog{
+        font-family: 'Lato', sans-serif;
+        margin-top: 80px;
+        background-color: gray;
+        width: 500px;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: azure;
         font-size: 25px;
+        font-weight: bolder;
     }
 }
+
 

@@ -9,6 +9,7 @@ const AuthMiddleware = (req, res, next) =>{
     try{
         const decodedValue = jwt.verify(jwtToken, JWT_SECRET);
         if(decodedValue.username){
+            req.user = decodedValue;
             next();
         } else{
             res.status(403).json({

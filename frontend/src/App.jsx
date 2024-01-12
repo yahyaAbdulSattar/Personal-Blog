@@ -1,10 +1,14 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import CreatePost from "../pages/CreatePost";
 import ShowPost from "../pages/ShowPost";
 import SinglePost from "../pages/SinglePost";
 import "../public/App.scss"
+import AdminLogin from "../pages/AdminLogin";
+import { useState } from "react";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
       <Routes>
@@ -15,7 +19,12 @@ function App() {
         }
         />
         <Route path={'/create'} element={
-          <CreatePost/>
+          isLoggedIn ? (
+            <CreatePost/>
+          ) : (
+            <Navigate to="/admin" replace/>
+          )
+          
         }
         />
         <Route path={'/display'} element={
@@ -25,6 +34,15 @@ function App() {
         <Route path={'/post/:id'} element={
           <SinglePost/>
         }
+        />
+        <Route path={'/admin'} element={
+          !isLoggedIn ? (
+            <AdminLogin setIsLoggedIn={setIsLoggedIn}/>
+          ) : (
+            <Navigate to="/create" replace/>
+          )
+          
+        } 
         />
       </Routes>
     </>

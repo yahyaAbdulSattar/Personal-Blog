@@ -30,11 +30,8 @@ const ShowPost = () => {
       <>
         <div className='blogs-container'>
           {blogs.map((blog) => (
-            <Link to={`/post/${blog._id}`}>
-            <div key={blog._id} className='blog'>
+            <Link to={`/post/${blog._id}`} className='blog' key={blog._id}>
               <div className='blog-title'>{blog.title}</div>
-              <div className='blog-content' dangerouslySetInnerHTML={sanitizeHTML(blog.content)}/>
-            </div>
             </Link>
           ))}
         </div>
